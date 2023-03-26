@@ -1,0 +1,12 @@
+version: "3.5"
+
+services:
+    actor-framework:
+        build:
+          context: .
+          dockerfile: Dockerfile
+          args:
+            VERSION: ${VERSION}
+        restart: "no"
+        volumes:
+        - ./:/output/
