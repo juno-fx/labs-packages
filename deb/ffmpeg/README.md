@@ -9,25 +9,25 @@
 
 ## About The Project
 
-Builds packages of the [C++ Actor Framework](https://actor-framework.readthedocs.io/en/stable/) for Debian and Ubuntu. 
+Builds packages of the [FFMPEG](https://ffmpeg.org/ffmpeg.html) for Debian and Ubuntu. 
 This is in response to a need for it to build [xStudio](https://github.com/AcademySoftwareFoundation/xstudio) as is stated in the
-[docs](https://github.com/AcademySoftwareFoundation/xstudio/blob/main/docs/build_guides/ubuntu_22_04.md#actorframework).
+[docs](https://github.com/AcademySoftwareFoundation/xstudio/blob/main/docs/build_guides/ubuntu_22_04.md#ffmpeg).
 
 ## Package
 
 You can download the `.deb` package directly from this repository using wget:
 
 ```bash
-wget https://github.com/juno-fx/labs-packages/raw/main/deb/actor-framework/juno-caf-0.18.4.deb
+wget https://github.com/juno-fx/labs-packages/raw/main/deb/ffmpeg/juno-ffmpeg-5.1.deb
 ```
 
 You can then install it using one of the following commands:
 ```bash
-apt install -f ./juno-caf-0.18.4.deb
+apt install -f ./juno-ffmpeg-5.1.deb
 ```
 
 ```bash
-dpkg -i ./juno-caf-0.18.4.deb
+dpkg -i ./juno-ffmpeg-5.1.deb
 ```
 
 #### Building Yourself
@@ -36,6 +36,6 @@ command:
 
 ```bash
 git clone https://github.com/juno-fx/labs-packages.git
-cd labs-packages/deb/actor-framework
-VERSION=0.18.4 docker-compose up --build
+cd labs-packages/deb/ffmpeg
+VERSION=5.1 docker-compose up --build
 ```
