@@ -1,0 +1,5 @@
+Package: juno-caf
+Version: 0.18.4
+Maintainer: Juno Labs
+Architecture: amd64
+Description: Installer for caf
