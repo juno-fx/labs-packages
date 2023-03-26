@@ -1,7 +1,7 @@
 <br />
 <p align="center">
     <img src="https://avatars.githubusercontent.com/u/9037579?v=4"/>
-    <h3 align="center">C++ Actor Framework</h3>
+    <h3 align="center">FFMPEG</h3>
     <p align="center">
         Used to build xStudio
     </p>

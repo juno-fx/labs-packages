@@ -1,0 +1,6 @@
+Package: juno-ffmpeg
+Version: 5.1
+Maintainer: Juno Labs
+Architecture: amd64
+Description: Installer for ffmpeg
+Depends: libavdevice-dev

@@ -19,12 +19,6 @@ RUN apt update  \
 RUN apt install -y \
     	libssl-dev
 
-# packaging tools
-#RUN apt install -y \
-#		devscripts \
-#		debhelper \
-#    	dh-make
-
 # set our work directory
 WORKDIR /juno
 
@@ -40,8 +34,6 @@ RUN chmod -v +x ./build.sh \
 
 RUN chmod -Rv 0755 juno-caf-${VERSION} \
     && dpkg-deb --build juno-caf-${VERSION}
-
-CMD cp -r *.deb /output/ && chmod -R 777 /output/
 
 FROM build-base AS test
 
