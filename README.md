@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-    <img src="https://avatars.githubusercontent.com/u/77702266?s=200&v=4"/>
+    <img src="https://avatars.githubusercontent.com/u/9037579?v=4"/>
     <h3 align="center">Juno Labs, Packages</h3>
     <p align="center">
         Contains packages used by Juno Labs

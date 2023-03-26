@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-    <img src="https://avatars.githubusercontent.com/u/77702266?s=200&v=4"/>
+    <img src="https://avatars.githubusercontent.com/u/9037579?v=4"/>
     <h3 align="center">C++ Actor Framework</h3>
     <p align="center">
         Contains packages used by Juno Labs
@@ -18,7 +18,16 @@ This is in response to a need for it to build [xStudio](https://github.com/Acade
 You can download the `.deb` package directly from this repository using wget:
 
 ```bash
-wget 
+wget https://github.com/juno-fx/labs-packages/raw/main/deb/actor-framework/juno-caf-0.18.4.deb
+```
+
+You can then install it using one of the following commands:
+```bash
+apt install -f ./juno-caf-0.18.4.deb
+```
+
+```bash
+dpkg -i ./juno-caf-0.18.4.deb
 ```
 
 #### Building Yourself
