@@ -39,3 +39,5 @@ git clone https://github.com/juno-fx/labs-packages.git
 cd labs-packages/deb/actor-framework
 VERSION=0.18.4 docker-compose up --build
 ```
+
+The resulting `.deb` package will be in the current working directory.

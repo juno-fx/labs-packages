@@ -1,0 +1,5 @@
+Package: juno-xstudio
+Version: 1.0.1
+Maintainer: Juno Labs
+Architecture: amd64
+Description: Installer for xStudio
