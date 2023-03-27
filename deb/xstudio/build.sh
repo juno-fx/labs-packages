@@ -7,15 +7,14 @@ JOBS=$((HALF_CPUS > 0 ? HALF_CPUS : 1))
 echo "VERSION: $1"
 echo "JOBS: $JOBS"
 
-# unpack
-tar -xf "v$1.tar.gz"
-
+# setup build env
+export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:/usr/local/lib64/pkgconfig
 # shellcheck disable=SC2164
-cd "OpenColorIO-$1/"
-
-# jump to build
+cd xstudio
 mkdir build
+# shellcheck disable=SC2164
 cd build
-cmake -DOCIO_BUILD_APPS=OFF -DOCIO_BUILD_TESTS=OFF -DOCIO_BUILD_GPU_TESTS=OFF ../
+
+# build
+cmake .. -DBUILD_DOCS=Off
 make -j $JOBS
-make install DESTDIR="../../juno-ocio2-$1"
