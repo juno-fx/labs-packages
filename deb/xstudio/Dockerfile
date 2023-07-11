@@ -23,7 +23,9 @@ RUN chmod -v +x ./juno-deps.sh \
     && ./juno-deps.sh
 
 # Cache so we don't spam the server
-RUN git clone https://github.com/AcademySoftwareFoundation/xstudio.git
+RUN git clone https://github.com/AcademySoftwareFoundation/xstudio.git \
+    && cd xstudio \
+    && git reset --hard 56bf691bb025ec405227c9185e8bb3bcd28c3a3c # rolling back to March 10th because of docs issue
 
 # build deps
 RUN apt install -y \
@@ -106,7 +108,8 @@ RUN apt install -y python3-pip \
 RUN export QV4_FORCE_INTERPRETER=1 \
     && export LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64:/opt/xstudio/lib \
     && export PYTHONPATH=/opt/xstudio/python/lib/python3.10/site-packages \
-	&& xstudio --pref /opt/xstudio/preference/
+    && export XSTUDIO_ROOT=/opt/xstudio
+#	&& xstudio --pref /opt/xstudio/preference/
 
 
 FROM alpine AS package
