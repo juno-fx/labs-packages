@@ -1,0 +1,6 @@
+Package: juno-xstudio
+Version: 1.0.0
+Maintainer: Juno Labs
+Architecture: amd64
+Description: Installer for xStudio
+Depends: qtbase5-dev, libpython3-dev, libglew-dev, qtquickcontrols2-5-dev, libspdlog-dev

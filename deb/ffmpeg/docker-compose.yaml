@@ -1,12 +1,12 @@
 version: "3.5"
 
 services:
-    ffmpeg:
-        build:
-          context: .
-          dockerfile: Dockerfile
-          args:
-            VERSION: ${VERSION}
-        restart: "no"
-        volumes:
-        - ./:/output/
+  builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VERSION: ${VERSION}
+    restart: "no"
+    volumes:
+    - ./:/output/

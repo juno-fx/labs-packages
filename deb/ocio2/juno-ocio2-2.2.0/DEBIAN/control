@@ -1,0 +1,5 @@
+Package: juno-ocio2
+Version: 2.2.0
+Maintainer: Juno Labs
+Architecture: amd64
+Description: Installer for OpenColorIO2

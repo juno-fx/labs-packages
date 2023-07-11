@@ -1,0 +1,10 @@
+version: "3.5"
+
+services:
+  builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: "no"
+    volumes:
+    - ./:/output/

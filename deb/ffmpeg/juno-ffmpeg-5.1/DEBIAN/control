@@ -3,4 +3,4 @@ Version: 5.1
 Maintainer: Juno Labs
 Architecture: amd64
 Description: Installer for ffmpeg
-Depends: libavdevice-dev
+Depends: libavdevice-dev, libfdk-aac2

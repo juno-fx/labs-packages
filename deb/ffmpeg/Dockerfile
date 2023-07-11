@@ -1,4 +1,3 @@
-
 # Build base
 FROM ubuntu:22.04 AS build-base
 
@@ -35,31 +34,38 @@ WORKDIR /juno
 RUN wget "https://ffmpeg.org/releases/ffmpeg-${VERSION}.tar.bz2"
 
 # copy in the source for the build
-COPY . .
+COPY ./build.sh ./
 
 # Start the build process
 RUN chmod -v +x ./build.sh \
     && ./build.sh ${VERSION}
 
-RUN mkdir -p juno-ffmpeg-${VERSION}/usr/local/lib/ \
-    && mkdir -p juno-ffmpeg-${VERSION}/usr/local/bin/ \
-    && cp -r ffmpeg-${VERSION}/ff* juno-ffmpeg-${VERSION}/usr/local/bin/ \
-    && chmod -R 0755 juno-ffmpeg-${VERSION} \
+WORKDIR /juno/ffmpeg-${VERSION}
+
+COPY juno-ffmpeg-${VERSION} /juno/juno-ffmpeg-${VERSION}
+
+RUN make install DESTDIR="../juno-ffmpeg-${VERSION}"
+
+WORKDIR /juno
+
+RUN chmod -R 0755 juno-ffmpeg-${VERSION} \
     && dpkg-deb --build juno-ffmpeg-${VERSION}
 
-FROM build-base AS test
 
-ARG VERSION
+FROM ubuntu:22.04 AS test
+
+RUN apt update && apt upgrade -y
+
+COPY --from=build-base /juno/juno-ffmpeg-*.deb ./
 
 # Verify that it is able to be installed
-RUN apt install -y -f ./juno-ffmpeg-${VERSION}.deb
-RUN find / -name libavdevice.so \
-    && which ffmpeg
+RUN apt install -y -f ./juno-ffmpeg-*.deb  \
+    && which ffmpeg  \
+    && ffmpeg -version
+
 
 FROM alpine AS package
 
-ARG VERSION
-
-COPY --from=test /juno/juno-ffmpeg-${VERSION}.deb .
+COPY --from=test /juno-ffmpeg-*.deb .
 
 CMD cp -r *.deb /output/ && chmod -R 777 /output/

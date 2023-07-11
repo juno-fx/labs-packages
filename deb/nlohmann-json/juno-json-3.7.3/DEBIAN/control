@@ -1,0 +1,5 @@
+Package: juno-json
+Version: 3.7.3
+Maintainer: Juno Labs
+Architecture: amd64
+Description: Installer for nlohmann json
